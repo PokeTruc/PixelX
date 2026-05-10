@@ -56,6 +56,24 @@
     </div>
 
     <h4>Profil</h4>
+<button id="toggleUserPageBtn">Afficher la page utilisateur</button>
+
+<div id="userPage" style="display: none;">
+  <h2>Page utilisateur</h2>
+  <p>Contenu de la page utilisateur…</p>
+</div>
+
+<script>
+  const btn = document.getElementById('toggleUserPageBtn');
+  const userPage = document.getElementById('userPage');
+  let visible = false;
+
+  btn.addEventListener('click', () => {
+    visible = !visible;
+    userPage.style.display = visible ? 'block' : 'none';
+    btn.textContent = visible ? 'Cacher la page utilisateur' : 'Afficher la page utilisateur';
+  });
+</script>
     <input id="profilePseudo" type="text" placeholder="Nouveau pseudo">
     <input id="profileIcon" type="text" placeholder="Nouvelle icône">
     <button id="btnSaveProfile">Mettre à jour</button>

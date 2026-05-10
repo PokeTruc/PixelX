@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>PixelMap Annie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="map"></div>
+
+<div class="limit-info">
+  Pixels restants : <span id="pixelsLeft">200</span>
+</div>
+
+<!-- Palette -->
+<div class="color-picker">
+  <button class="color-btn" data-color="#f97316" style="background:#f97316;"></button>
+  <button class="color-btn" data-color="#22c55e" style="background:#22c55e;"></button>
+  <button class="color-btn" data-color="#3b82f6" style="background:#3b82f6;"></button>
+  <button class="color-btn" data-color="#a855f7" style="background:#a855f7;"></button>
+  <button class="color-btn" data-color="#ef4444" style="background:#ef4444;"></button>
+  <button id="btnErase" class="color-btn" style="background:white;">🧽</button>
+</div>
+
+<!-- Auth -->
+<div class="ui-panel">
+  <div class="card" id="authCard">
+    <h3>Connexion</h3>
+    <input id="loginEmail" type="email" placeholder="Email">
+    <input id="loginPassword" type="password" placeholder="Mot de passe">
+    <button id="btnLogin">Se connecter</button>
+
+    <hr>
+
+    <h3>Inscription</h3>
+    <input id="regEmail" type="email" placeholder="Email">
+    <input id="regPassword" type="password" placeholder="Mot de passe">
+    <input id="regPseudo" type="text" placeholder="Pseudo">
+    <input id="regIcon" type="text" placeholder="Icône (emoji ou URL)">
+    <button id="btnRegister">S'inscrire</button>
+
+    <div class="msg" id="authMsg"></div>
+  </div>
+
+  <div class="card" id="userCard" style="display:none;">
+    <div class="user-header">
+      <div class="user-icon" id="userIcon">🙂</div>
+      <div>
+        <div id="userPseudoLabel">Utilisateur</div>
+        <div id="userEmailLabel" class="sub"></div>
+      </div>
+    </div>
+
+    <h4>Profil</h4>
+    <input id="profilePseudo" type="text" placeholder="Nouveau pseudo">
+    <input id="profileIcon" type="text" placeholder="Nouvelle icône">
+    <button id="btnSaveProfile">Mettre à jour</button>
+    <button id="btnLogout" class="secondary">Déconnexion</button>
+
+    <hr>
+
+    <button id="btnLeaderboard">🏆 Classement</button>
+  </div>
+</div>
+
+<!-- Classement -->
+<div class="modal-backdrop" id="leaderboardModal">
+  <div class="modal">
+    <h3>Classement</h3>
+    <ul id="leaderboardList"></ul>
+    <button id="btnCloseLeaderboard">Fermer</button>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

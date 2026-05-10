@@ -322,3 +322,16 @@ window.addEventListener("load", () => {
   initMap();
   updateLimitInfo();
 });
+await fetch("/api/pixel", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ x, y, color })
+});
+async function loadPixels() {
+    const res = await fetch("/api/pixels");
+    const pixels = await res.json();
+    pixels.forEach(p => drawPixel(p.x, p.y, p.color));
+}
+
+loadPixels();
+map.on("moveend", loadPixels);

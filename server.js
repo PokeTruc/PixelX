@@ -112,5 +112,13 @@ app.get("/api/leaderboard", (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
-
 app.listen(PORT, () => console.log("Serveur lancé sur Render"));
+let pixels = [];
+app.post("/api/pixel", (req, res) => {
+    const pixel = req.body;
+    pixels.push(pixel);
+    res.json({ success: true });
+});
+app.get("/api/pixels", (req, res) => {
+    res.json(pixels);
+});
